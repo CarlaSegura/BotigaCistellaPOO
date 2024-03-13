@@ -4,23 +4,24 @@
 	{
         //ATRIBUTS
         private string nomBotiga;
-        private int[] productes;
+        private Producte[] productes;
         private int nElements;
 
         //CONSTRUCTORS
         public Botiga()
 		{
-            productes = new int[10];
+            productes = [10];
             nElements = 0;
 		}
 
-        public Botiga(string nomBotiga, int producte)
+        public Botiga(string nomBotiga, int nombreProductes)
         {
             this.nomBotiga = nomBotiga;
-            productes = producte;
+            Producte[nombreProductes];
+            nElements = 0;
         }
 
-        public Botiga():this()
+        public Botiga()
         {
             
         }
@@ -31,7 +32,7 @@
             set { nomBotiga = value; }
             get { return nomBotiga; }
         }
-        public int[] Productes
+        public Producte[] Productes
         {
             set { productes = value; }
             get { return productes; } 
@@ -45,12 +46,34 @@
         //METODES
         public int EspaiLliure()
         {
+            if (productes.Length == nElements)
+            {
+                return -1;
+            }
+            else
+            {
+                return nElements + 1;
+            }
+        }
+
+        public void Idexador()
+        {
 
         }
 
-        public int AfegirProducte(Producte producte)
+        public bool AfegirProducte(Producte producte)
         {
-
+            if (nElements == productes.Length)
+            {
+                Console.WriteLine("La botiga esta plena");
+                return false;
+            }
+            else
+            {
+                nElements++;
+                productes[nElements] = producte;
+                return true;
+            }
         }
 
         public int AfegirProducte(Producte[] productes)
@@ -58,14 +81,21 @@
 
         }
 
-        public int AmpliarBotiga(int num)
+        public void AmpliarBotiga(int num)
         {
+            Producte[] novaTaula = new Producte[productes.Length + num];
 
+            Array.Copy(productes, novaTaula, productes.Length);
+
+            productes = novaTaula;
         }
 
         public int ModificarPreu(string producte, double preu)
         {
-
+            for(int i = 0; i <= nElements; i++)
+            {
+               
+            }
         }
 
         public int BuscarProducte(Producte producte)
@@ -90,6 +120,7 @@
         {
 
         }
+
         public override string ToString()
         {
             return base.ToString();

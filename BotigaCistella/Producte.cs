@@ -18,6 +18,7 @@
             iva = 21;
             quantitat = 0;
 		}
+        //Explica sempre el QUE FA,
 
         /// <summary>
         /// 
