@@ -1,5 +1,4 @@
-﻿using System;
-namespace BotigaCistella
+﻿namespace BotigaCistella
 {
 	public class Cistella
 	{
@@ -12,6 +11,10 @@ namespace BotigaCistella
         private int diners;
 
         //CONSTRUCTORS
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Cistella()
 		{
             botiga = null;

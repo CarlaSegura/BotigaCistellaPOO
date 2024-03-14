@@ -4,7 +4,7 @@
 	{
         //ATRIBUTS
         private string nom;
-        private int preuSenseIva;
+        private double preuSenseIva;
         private int iva;
         private int quantitat;
 
@@ -51,22 +51,22 @@
         public string Nom
         {
             set { nom = value; }
-            get { return nom; } //VALIDAR VALORS POSITIUS
+            get { return nom; } 
         }
-        public int PreuSenseIva
+        public double PreuSenseIva
         {
-            set { preuSenseIva = value; }
-            get { return preuSenseIva; } //VALIDAR VALORS POSITIUS
+            set { if (preuSenseIva > 0) preuSenseIva=value; }
+            get { return preuSenseIva; } 
         }
         public int Iva
         {
-            set { iva = value; }
-            get { return iva; } //VALIDAR VALORS POSITIUS
+            set { if (iva > 0) iva = value; }
+            get { return iva; } 
         }
         public int Quantitat
         {
-            set { quantitat = value; }
-            get { return quantitat; } //VALIDAR VALORS POSITIUS
+            set { if (iva > 0) iva = value; }
+            get { return quantitat; } 
         }
 
         //METODES (PUBLICS)
@@ -75,9 +75,9 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        public int Preu()
+        public double Preu()
         {
-            int preu = iva / 100 + preuSenseIva;
+            double preu = iva / 100 + preuSenseIva;
             return preu;
         }
 
